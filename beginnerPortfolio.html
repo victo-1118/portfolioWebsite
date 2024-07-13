@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="beginnerPortfolio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>My First HTML Page</title>
+</head>
+<body>
+    <h1> Hey this is my website </h1>
+    
+    <nav class="nav-bar"> 
+        <ul class="nav-list">
+            <li><a href="#Home" class="nav-item"> Home </a></li>
+            <li><a href="#About" class="nav-item"> About </a></li>
+            <li><a href="#Portfolio" class="nav-item"> Portfolio </a></li>            
+            <li><a href="#Contact" class="nav-item"> Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id = "Home" class="home-section">
+        <p> this is my home page</p>
+    </section>
+
+    <section id = "About" class="about-section">
+        <h3> About</h3>
+        <div class="about">
+            <p>Hello! My name is Victor Jimenez. I am currently a student at NC State University,
+                born and raised in North Carolina. I am an aspiring software developer with a
+                passion for both front-end and back-end development.
+                Over time, I have worked on various projects to hone my skills and deepen my
+                understanding of the field.
+            </p>
+    
+            <p>Outside of programming, I enjoy working out and playing video games. My mindset is always
+                to be better than I was yesterday, and I strive for continuous improvement in all aspects
+                of my life.</p>
+        </div>
+        <img src = "HeadshotOfMe.JPG" alt = "A photo of Victor" id = "photo-resize">
+    </section>
+
+    <section id = "Portfolio" class="portfolio-section">
+        <div class="project">
+            <h2> User Authentication System (Backend) </h2>
+            <h3> Purpose </h3>
+            <p> I started this project to learn more about FastAPI and how I could use a database with it</p>
+            <h3> Technologies used</h3>
+            <ul> 
+                <li> <strong>FastAPI</strong>: for building the web API </li>
+                <li> <strong>Tortoise ORM</strong>: for making the database and its interactions </li>
+                <li> <strong>Python</strong>: The primary programming language </li>
+                <li> <strong>JWT (Json Web Tokens)</strong>: Used to implement secure authentication </li>
+            </ul>
+            <h3> Role </h3>
+            <p> My primary role was to study and understand the existing code. I did not write any of the
+                code but focused on dissecting every part
+            </p>
+            <h3> Learning process</h3>
+            <ol>
+                <li> <strong>Understanding FastAPI</strong>: I explored the basics of FastAPI, including 
+                setting up endpoints, handling requests and responses and using dependency injection
+                </li>
+                <li>
+                    <strong> Understanding Tortoise ORM</strong>: I learned how to establish my database connection
+                    , create models, used Tortoise ORM methods to help implement crud operations
+
+                </li>
+                <li>
+                    <strong> Implemented JWT</strong>: I learned about JWT tokens and how it is used for 
+                    secure authentication including generation and verifying tokens
+                    
+                </li>
+            </ol>
+            <h3> Challenges</h3>
+            <p> <strong>Challenge</strong>: Understanding the flow of user authentication and how different components interacted</p>
+            <p> <strong>Solution</strong>: I broke down the code into smaller manageable pieces to understand what each part accomplished
+                I also looked at tutorials and used Technologies like chat gpt to help me understand the reason behind some the code    
+            </p>
+            <p> <strong>Challenge</strong>: Ensuring best security practices</p>
+            <p> <strong>Solution</strong>: I replaced any deprecated code with up to date methods </p>
+            <h3> Learning and Outcomes</h3>
+            <ul>
+                <li> <strong> Skills Acquired</strong>: Gained a better understanding of FastAPI and Tortoise ORM.
+                    Also Improved my knowledge of web security principles and authentication mechanisms.
+                </li>
+                <li> <strong> Insights</strong>: Understood I needed to learn more about file structure when creating RESTful API's 
+                . Best security practices is also something I need to work on as I realize theres a lot to learn about that still.
+                </li>
+            </ul>
+            <p> This would be my link to my github with the project</p>
+        </div>
+        <div class="project">
+            <h2> To Do List API (Frontend and Backend)</h2>
+            <h3> Purpose</h3>
+            <p> My purpose for this project was to implement my better understanding of FastApi and Tortoise ORM</p>
+            <h3> Technologies Used</h3>
+            <ul> 
+                <li> <strong>FastAPI</strong>: for building the web API </li>
+                <li> <strong>Tortoise ORM</strong>: for making the database and its interactions </li>
+                <li> <strong>Python</strong>: The primary programming language </li>
+                <li> <strong>Typing library</strong>: Used for type hinting which improve quality, readability and maintainability of the code </li>
+            </ul>
+            <h3> Role</h3>
+            <p> My primary role was to code the frontend and backend part of the project to solidify my understanding of FastAPI, Tortoise ORM and (frontend stuff)</p>
+            <h3> Learning Process</h3>
+            <ol>
+                <li><strong>Continued further Understanding of FastAPI and Tortoise ORM</strong>: Implemented my what I understood from both of these technologies and continued to learn more features from them</li>
+                <li><strong> Implemented and Understanding Typehinting in Python</strong>: Learned about Typehinting to begin to develop good habits and to make </li>
+            </ol>
+            <h3> Challenges </h3>
+            <p> <strong>Challenge</strong>: How to implement a class that would act as a list that would take several Item objects</p>
+            <p><strong> Solution</strong>: I learned that the fields library has a two methods that can help simulate a list. 
+                By using .ReverseRelation() and .ForeignKeyField() I was able to establish a relationship between the two classes(List and Item) so that I could
+                link Item objects to a List object which would be the only object that could access those Item objects.
+            </p>
+            <p><strong>Challenge</strong>: How to use pydantic models made from Tortoise ORM for typehinting</p>
+            <p><strong>Solution</strong>: I went to the Tortoise ORM documentation for help and saw that I just had 
+                to create classes based on the variable names of my pydantic models created from Tortoise and pass them so that 
+                I could use them for type checking.
+            </p>
+            <h3> Learning and Outcomes</h3>
+            <ul>
+                <li><strong>Skills Acquired</strong>: Learned how to simulate list and how to use pydantic
+                    models created from Tortoise for typehinting. Also gained practical experience on how to
+                    create RESTful API's, how I should set up my file structure and what order I should work 
+                    for parts of the API
+                </li>
+                <li><strong>Insights</strong>: Understood that theres still a lot for me to learn about creating automatic tests.</li>
+            </ul>
+            <p> Link to github project would be here</p>
+        </div>
+    </section>
+
+    <section id = "Contact" class="contact-section">
+        <h2>Contact me</h2>
+        <form action="https://formspree.io/f/mnnandla" method="POST">
+            <label for name="name"> Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for email="email"> Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for message="message"> Your message:</label>
+            <textarea type="text" id="message" name="message" required></textarea>
+
+            <button type="submit"> Send</button>
+        </form>
+        <footer> 
+            <p>Connect with me</p>
+            <ul class="social-links">
+                <li><a href="https://www.linkedin.com/in/victor-jimenez-36b8a1294" target="_blank"><img src="linkedin-icon.png" alt="LinkedIn"> LinkedIn</a></li>                
+            </ul>
+            <p>&copy; 2024 Victor Jimenez. All rights reserved.</p>
+        </footer>
+        
+    </section>
+</body>

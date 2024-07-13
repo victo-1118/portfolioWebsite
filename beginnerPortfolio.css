@@ -1,0 +1,76 @@
+.home-section {
+    background-color: white;
+}
+.about-section {
+    background-color: #E3F2FD;
+}
+.portfolio-section {
+    background-color: #BBDEFB;
+}
+.contact-section {
+    background-color: #90CAF9;
+}
+section {
+    width: 100%;
+    margin: 0px;
+    padding: 20px;
+}
+html, body {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+}
+.nav-bar {
+    background-color: #333;
+    padding: 10px;
+}
+.nav-list {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.nav-item a:link, .nav-item:visited {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+}
+.nav-item a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+}
+.nav-item a:active {
+    color: white;
+}
+.project {
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 5px 9px rgb(0,0,0,0.1);
+    border: 1px solid #333;
+}
+.social-links {
+    list-style: none;
+    padding: 0;
+}
+.social-links li {
+    display: inline;
+    margin: 0 10px;
+}
+.social-links li a:link, .social-links li a:visited {
+    text-decoration: none;
+    color: #333;
+}
+.social-links li a:hover {
+    color: #0073b1;
+}
+.social-links img{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
