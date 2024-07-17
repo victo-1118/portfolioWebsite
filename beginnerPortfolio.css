@@ -1,6 +1,16 @@
 .home-section {
     background-color: white;
 }
+#photo-resize {
+    text-align: center;
+}
+#photo-resize img {
+    display: block; /* Ensures the image behaves like a block element */
+    margin: 0 auto; /* Centers the image horizontally */
+    width: 250px;
+    max-width: 100%; /* Optionally, limits the image width to the container width */
+    height: auto; /* Ensures the image maintains its aspect ratio */
+}
 .about-section {
     background-color: #E3F2FD;
 }
@@ -9,6 +19,9 @@
 }
 .contact-section {
     background-color: #90CAF9;
+}
+p, h3, h2{
+    text-align: center;
 }
 section {
     width: 100%;
@@ -77,6 +90,52 @@ body {
     width: 20px;
     height: 20px;
     margin-right: 5px;
+}
+.circle-border {
+    border-radius: 50%;
+    border: 1px solid #333;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: center;
+}
+.container {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 50px;
+}
+.featured-project1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.featured-project1 img{
+    max-width: 100%;
+    height: auto
+}
+.featured-project2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.featured-project2 img{
+    max-width: 100%;
+    height: auto
+}
+.featured-project3 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.featured-project3 img{
+    max-width: 100%;
+    height: auto
 }
 /* Media query for tablets (min-width: 600px) */
 @media (min-width: 600px) {

@@ -6,10 +6,10 @@
     <link rel="stylesheet" href="beginnerPortfolio.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <title>My First HTML Page</title>
 </head>
 <body>
-    <h1> Hey this is my website </h1>
     
     <nav class="nav-bar"> 
         <ul class="nav-list">
@@ -21,11 +21,21 @@
     </nav>
 
     <section id = "Home" class="home-section">
-        <p> this is my home page</p>
+        <h1> This is Victor Jimenez</h1>
+        <br></br>
+        <h2> <strong>Featured Projects</strong></h2>
+        <div class="container">
+            <div class="featured-project1"><img src="https://pixahive.com/wp-content/uploads/2020/10/Hacking-And-Cyber-Security-129294-pixahive.jpg" alt="cyberlocks"></div>
+            <div class="featured-project2"><img src ="https://images.pexels.com/photos/5717409/pexels-photo-5717409.jpeg"></div>
+            <div class="featured-project3">3</div>
+        </div>
     </section>
 
     <section id = "About" class="about-section">
         <h3> About</h3>
+        <div id = "photo-resize" class="circle-border">
+            <img src = "images/HeadshotOfMe.JPG" alt = "A photo of Victor" id = "photo-resize">
+        </div>
         <div class="about">
             <p>Hello! My name is Victor Jimenez. I am currently a student at NC State University,
                 born and raised in North Carolina. I am an aspiring software developer with a
@@ -38,7 +48,8 @@
                 to be better than I was yesterday, and I strive for continuous improvement in all aspects
                 of my life.</p>
         </div>
-        <img src = "HeadshotOfMe.JPG" alt = "A photo of Victor" id = "photo-resize">
+        
+        
     </section>
 
     <section id = "Portfolio" class="portfolio-section">
@@ -150,7 +161,7 @@
         <footer> 
             <p>Connect with me</p>
             <ul class="social-links">
-                <li><a href="https://www.linkedin.com/in/victor-jimenez-36b8a1294" target="_blank"><img src="linkedin-icon.png" alt="LinkedIn"> LinkedIn</a></li>                
+                <li><a href="https://www.linkedin.com/in/victor-jimenez-36b8a1294" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
             </ul>
             <p>&copy; 2024 Victor Jimenez. All rights reserved.</p>
         </footer>
