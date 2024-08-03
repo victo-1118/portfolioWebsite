@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="beginnerPortfolio.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-okaidia.min.css" rel="stylesheet" />
 
     <title>My First HTML Page</title>
 </head>
@@ -22,17 +23,31 @@
 
     <section id = "Home" class="home-section">
         <h1> This is Victor Jimenez</h1>
-        <br></br>
-        <h2> <strong>Featured Projects</strong></h2>
-        <div class="container">
-            <div class="featured-project1"><img src="https://pixahive.com/wp-content/uploads/2020/10/Hacking-And-Cyber-Security-129294-pixahive.jpg" alt="cyberlocks"></div>
-            <div class="featured-project2"><img src ="https://images.pexels.com/photos/5717409/pexels-photo-5717409.jpeg"></div>
-            <div class="featured-project3">3</div>
-        </div>
+
+        <section id="Featured-Projects-Part">
+            <h2> Featured Projects</h2>
+            <div class="featured-container">
+                <div class="featured-project1 featured-project">
+                    <img src="https://pixahive.com/wp-content/uploads/2020/10/Hacking-And-Cyber-Security-129294-pixahive.jpg" alt="cyberlocks">
+                    <h2>User Authentication System (Backend)</h2>
+                    <p>
+                        The User Authentication System project was initiated to deepen my understanding of FastAPI and its integration with databases.
+                    </p>    
+                </div>
+                <div class="featured-project2 featured-project">
+                    <img src ="https://images.pexels.com/photos/5717409/pexels-photo-5717409.jpeg">
+                    <h2> To Do List API (Frontend and Backend)</h2>
+                    <p>
+                        The purpose of this project was to implement and solidify my understanding of FastAPI and Tortoise ORM.
+                    </p>
+                </div>
+                <div class="featured-project3 featured-project">3</div>
+            </div>
+        </section>
     </section>
 
     <section id = "About" class="about-section">
-        <h3> About</h3>
+        <h2> About</h2>
         <div id = "photo-resize" class="circle-border">
             <img src = "images/HeadshotOfMe.JPG" alt = "A photo of Victor" id = "photo-resize">
         </div>
@@ -58,12 +73,46 @@
             <h3> Purpose </h3>
             <p> I started this project to learn more about FastAPI and how I could use a database with it</p>
             <h3> Technologies used</h3>
-            <ul> 
-                <li> <strong>FastAPI</strong>: for building the web API </li>
-                <li> <strong>Tortoise ORM</strong>: for making the database and its interactions </li>
-                <li> <strong>Python</strong>: The primary programming language </li>
-                <li> <strong>JWT (Json Web Tokens)</strong>: Used to implement secure authentication </li>
-            </ul>
+            <div class="technologies-container">
+                 
+                <div class="technologie-used">
+                    <h4> FastAPI </h4>
+                    <p>For building the web api and setting up the routes neccesary  </p>
+                </div>
+                <div class="technologie-used">
+                    <pre><code class="language-python">from fastapi import APIRouter, Depends, HTTPException
+from .. import crud, schemas, dependencies
+
+router = APIRouter(
+    prefix="/users",
+    tags=["users"],
+    dependencies=[Depends(dependencies.get_db)]
+)
+
+@router.post("/", response_model=schemas.User)
+async def create_user(user: schemas.UserCreate):
+    db_user = await crud.get_user_by_email(user.email)
+    if db_user:
+        raise HTTPException(status_code=400, detail="Email already registered")
+    return await crud.create_user(user)
+                    </code></pre>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+                </div>
+                <div class="technologie-used">
+                    <h4> Tortoise ORM </h4>
+                    <p>for making the database and its interactions </p>
+                </div>
+                <div class="technologie-used">
+                    <h4> Python </h4>
+                    <p>The primary programming language</p>
+                </div>
+                <div class="technologie-used">
+                    <h4>JWT (Json Web Tokens) </h4>
+                    <p>Used to implement secure authentication</p>
+                </div>
+        
+            </div>
             <h3> Role </h3>
             <p> My primary role was to study and understand the existing code. I did not write any of the
                 code but focused on dissecting every part
