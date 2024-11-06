@@ -20,15 +20,27 @@
     max-width: 100%; /* Optionally, limits the image width to the container width */
     height: auto; /* Ensures the image maintains its aspect ratio */
 }
+#photo-resize-program-logo {
+    display: block; /* Ensures the image behaves like a block element */
+    margin: 0 auto; /* Centers the image horizontally */
+    width: auto;
+    max-width: 100%; /* Optionally, limits the image width to the container width */
+    height: auto; /* Ensures the image maintains its aspect ratio */
+}
 .about-section {
     background-color: var(--primary-color);
     color: black;
-    text-align: center;
+    text-align: start;
+    
+}
+.about-section p {
+    margin: 0 auto;
+    max-width: 75ch;
     
 }
 .portfolio-section {
     background-color: var(--primary-color);
-    padding: 5px 40px;
+    padding: 5px 60px;
 }
 .contact-section {
     background-color:var(--primary-color);
@@ -48,11 +60,8 @@ h3 {
 h4 {
     font-size: 1.3rem;
 }
-p{
-    margin: 0 auto;
-    font-size: 1.2rem;
-    max-width: 75ch;
-    
+p, ol, ul{
+    font-size: 1.2rem;    
 }
 section {
     width: 100%;
@@ -101,6 +110,13 @@ body {
     padding: 20px;
     margin: 40px 0;
     box-shadow: 0px 5px 20px rgb(152, 152, 152);
+
+}
+.project p, ol, ul{
+    max-width: 115ch;
+}
+.project h4 {
+    text-decoration: underline;
 }
 .social-links {
     list-style: none;
@@ -127,6 +143,7 @@ body {
     border: 1px solid #333;
     width: 200px;
     height: 200px;
+    z-index: 1001;
     margin: 0 auto;
     overflow: hidden;
     text-align: center;
@@ -172,6 +189,7 @@ body {
     height: auto;
     max-height: 50%;
     object-fit: cover;
+
     
 }
 .featured-project2 {

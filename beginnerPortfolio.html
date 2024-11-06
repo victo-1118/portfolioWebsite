@@ -35,13 +35,20 @@
                     </p>    
                 </div>
                 <div class="featured-project2 featured-project">
-                    <img src ="https://images.pexels.com/photos/5717409/pexels-photo-5717409.jpeg">
+                    <img src ="https://images.pexels.com/photos/5717409/pexels-photo-5717409.jpeg" alt="to do list">
                     <h2> To Do List API (Frontend and Backend)</h2>
                     <p>
                         The purpose of this project was to implement and solidify my understanding of FastAPI and Tortoise ORM.
                     </p>
                 </div>
-                <div class="featured-project3 featured-project">3</div>
+                <div class="featured-project3 featured-project">
+                    <img src="https://live.staticflickr.com/4047/4678719596_c5218e252d_b.jpg" alt ="recipe book">
+                    <h2> Recipe Finder Application Frontend</h2>
+                    
+                    <p>
+                        The purpose of this project was to implement and solidify my current understanding of javascript.
+                    </p>
+                </div>
             </div>
         </section>
     </section>
@@ -74,7 +81,13 @@
             <p> I started this project to learn more about FastAPI and how I could use a database with it</p>
             <h3> Technologies used</h3>
             <div class="technologies-container">
-                 
+                <div class="technologie-used">
+                    <h4> Python </h4>
+                    <p>The primary programming language</p>
+                </div>
+                <div class="technologie-used">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Python_logo_51.svg" alt="python logo" id="photo-resize-program-logo">
+                </div>
                 <div class="technologie-used">
                     <h4> FastAPI </h4>
                     <p>For building the web api and setting up the routes neccesary  </p>
@@ -83,33 +96,65 @@
                     <pre><code class="language-python">from fastapi import APIRouter, Depends, HTTPException
 from .. import crud, schemas, dependencies
 
-router = APIRouter(
+router = APIRouter( # Sets up the router that will handel all the routes
     prefix="/users",
     tags=["users"],
     dependencies=[Depends(dependencies.get_db)]
+    #dependecies value tells it to use the get_db function from the dependencies
 )
 
-@router.post("/", response_model=schemas.User)
+@router.post("/", response_model=schemas.User)# Sets up route to create user
 async def create_user(user: schemas.UserCreate):
     db_user = await crud.get_user_by_email(user.email)
     if db_user:
         raise HTTPException(status_code=400, detail="Email already registered")
-    return await crud.create_user(user)
-                    </code></pre>
+    return await crud.create_user(user)</code></pre>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
                 </div>
                 <div class="technologie-used">
                     <h4> Tortoise ORM </h4>
-                    <p>for making the database and its interactions </p>
+                    <p>For making the database and its interactions </p>
                 </div>
                 <div class="technologie-used">
-                    <h4> Python </h4>
-                    <p>The primary programming language</p>
+                    <pre><code class="language-python">from fastapi import FastAPI
+from tortoise.contrib.fastapi import register_tortoise
+register_tortoise(
+    app, # Fast API app
+    db_url=settings.DATABASE_URL,# Sets up the database URL from the settings congiguration
+    modules={'models': ['app.models']}, # Tells us where to find tortoise orm models
+    generate_schemas=True, # Generates database schemas based on the models
+    add_exception_handlers=True, # Adds exception handlers
+)                   </code></pre>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
                 </div>
+                
                 <div class="technologie-used">
                     <h4>JWT (Json Web Tokens) </h4>
                     <p>Used to implement secure authentication</p>
+                </div>
+                <div class="technologie-used">
+                    <pre><code class="language-python">from datetime import timedelta
+from fastapi import APIRouter, Depends, HTTPException
+from fastapi.security import OAuth2PasswordRequestForm
+from .. import crud, schemas, auth, config
+from ..dependencies import get_current_active_user
+
+# response will be validated against schema token
+@router.post("/token", response_model=schemas.Token)
+# form_data uses rquest form dependency to parse form data
+async def login_for_acess_token(form_data: OAuth2PasswordRequestForm = Depends()):
+    user = await crud.authenticate_user(form_data.username, form_data.password)
+    if not user:
+        raise HTTPException(status_code=401, detail="Incorrect username or password",
+             headers={"WWW-Authenticate": "Bearer"})
+    access_token_expires = timedelta(minutes=config.settings.ACCESS_TOKEN_EXPIRE_MINUTES)
+    access_token = auth.create_access_token(data={"sub": user.username},
+         expires_delta=access_token_expires)
+    return {"access_token": access_token, "token_type" : "bearer"} </code></pre>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
                 </div>
         
             </div>
@@ -156,12 +201,84 @@ async def create_user(user: schemas.UserCreate):
             <h3> Purpose</h3>
             <p> My purpose for this project was to implement my better understanding of FastApi and Tortoise ORM</p>
             <h3> Technologies Used</h3>
-            <ul> 
-                <li> <strong>FastAPI</strong>: for building the web API </li>
-                <li> <strong>Tortoise ORM</strong>: for making the database and its interactions </li>
-                <li> <strong>Python</strong>: The primary programming language </li>
-                <li> <strong>Typing library</strong>: Used for type hinting which improve quality, readability and maintainability of the code </li>
-            </ul>
+            <div class="technologies-container">
+                <div class="technologie-used">
+                    <h4> Python </h4>
+                    <p>The primary programming language</p>
+                </div>
+                <div class="technologie-used">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Python_logo_51.svg" alt="python logo" id="photo-resize-program-logo">
+                </div>
+                <div class="technologie-used">
+                    <h4> FastAPI </h4>
+                    <p>For building the web api and setting up the routes neccesary  </p>
+                </div>
+                <div class="technologie-used">
+                    <pre><code class="language-python">from fastapi import APIRouter, Depends, HTTPException
+from .. import crud, schemas, dependencies
+
+router = APIRouter( # Sets up the router that will handel all the routes
+    prefix="/users",
+    tags=["users"],
+    dependencies=[Depends(dependencies.get_db)]
+    #dependecies value tells it to use the get_db function from the dependencies
+)
+
+@router.post("/", response_model=schemas.User)# Sets up route to create user
+async def create_user(user: schemas.UserCreate):
+    db_user = await crud.get_user_by_email(user.email)
+    if db_user:
+        raise HTTPException(status_code=400, detail="Email already registered")
+    return await crud.create_user(user)</code></pre>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+                </div>
+                <div class="technologie-used">
+                    <h4> Tortoise ORM </h4>
+                    <p>For making the database and its interactions </p>
+                </div>
+                <div class="technologie-used">
+                    <pre><code class="language-python">from fastapi import FastAPI
+from tortoise.contrib.fastapi import register_tortoise
+register_tortoise(
+    app, # Fast API app
+    db_url=settings.DATABASE_URL,# Sets up the database URL from the settings congiguration
+    modules={'models': ['app.models']}, # Tells us where to find tortoise orm models
+    generate_schemas=True, # Generates database schemas based on the models
+    add_exception_handlers=True, # Adds exception handlers
+)                   </code></pre>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+                </div>
+                
+                <div class="technologie-used">
+                    <h4>JWT (Json Web Tokens) </h4>
+                    <p>Used to implement secure authentication</p>
+                </div>
+                <div class="technologie-used">
+                    <pre><code class="language-python">from datetime import timedelta
+from fastapi import APIRouter, Depends, HTTPException
+from fastapi.security import OAuth2PasswordRequestForm
+from .. import crud, schemas, auth, config
+from ..dependencies import get_current_active_user
+
+# response will be validated against schema token
+@router.post("/token", response_model=schemas.Token)
+# form_data uses rquest form dependency to parse form data
+async def login_for_acess_token(form_data: OAuth2PasswordRequestForm = Depends()):
+    user = await crud.authenticate_user(form_data.username, form_data.password)
+    if not user:
+        raise HTTPException(status_code=401, detail="Incorrect username or password",
+             headers={"WWW-Authenticate": "Bearer"})
+    access_token_expires = timedelta(minutes=config.settings.ACCESS_TOKEN_EXPIRE_MINUTES)
+    access_token = auth.create_access_token(data={"sub": user.username},
+         expires_delta=access_token_expires)
+    return {"access_token": access_token, "token_type" : "bearer"} </code></pre>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+                </div>
+        
+            </div>
             <h3> Role</h3>
             <p> My primary role was to code the frontend and backend part of the project to solidify my understanding of FastAPI, Tortoise ORM and (frontend stuff)</p>
             <h3> Learning Process</h3>
