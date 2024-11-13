@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-okaidia.min.css" rel="stylesheet" />
 
-    <title>My First HTML Page</title>
+    <title>Victor's Web Portfolio</title>
 </head>
 <body>
     
@@ -22,7 +22,7 @@
     </nav>
 
     <section id = "Home" class="home-section">
-        <h1> This is Victor Jimenez</h1>
+
 
         <section id="Featured-Projects-Part">
             <h2> Featured Projects</h2>
@@ -308,29 +308,106 @@ async def login_for_acess_token(form_data: OAuth2PasswordRequestForm = Depends()
             </ul>
             <p> Link to the github project would be here</p>
         </div>
+        <div class="project">
+            <h2> Recipe Finder Application</h2>
+            <h3> Purpose</h3>
+            <p> My purpose for this project was to learn more about javascript and use my existing knowledge to create a webpage</p>
+            <h3> Technologies Used</h3>
+            <div class="technologies-container">
+                <div class="technologie-used">
+                    <h4> HTML + CSS </h4>
+                    <p> Language used to build the web page</p>
+                </div>
+                <div class="technologie-used">
+                    <img src="https://miro.medium.com/v2/resize:fit:792/1*lJ32Bl-lHWmNMUSiSq17gQ.png" alt="html and css logo" id="temp-fix1">
+                </div>
+                <div class="technologie-used">
+                    <h4> Javascript </h4>
+                    <p>For building the web api and setting up the routes neccesary  </p>
+                </div>
+                <div class="technologie-used">
+                    <img src = "https://1000logos.net/wp-content/uploads/2020/09/JavaScript-Logo.png" alt="javascript logo" id="temp-fix2">
+                </div>
+                <div class="technologie-used">
+                    <h4> Spoonacular API </h4>
+                    <p>For making the database and its interactions </p>
+                </div>
+                <div class="technologie-used">
+                    <pre><code class="language-javascript">form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const ingredients = document.getElementById("search").value;
+    fetchRecpies(ingredients);
+});
+                
+function fetchRecpies(ingredients) {
+    const url = `call to Spoonacular API`;
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+            displayRecipes(data);
+        })
+        .catch((error) => {
+            console.error("Error fetching recipes", error);
+        });
+}
+)                   </code></pre>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+                </div>
+                
+                
+        
+            </div>
+            <h3> Role</h3>
+            <p> My primary role was to code the frontend and integrate the Spoonacular API</p>
+            <h3> Learning Process</h3>
+            <ol>
+                <li><strong>Continued further Understanding of HTML and CSS</strong>: Implemented my knowledge of HTML and CSS to create a friendly user interface</li>
+                <li><strong> Implemented Javascript</strong>: Learned basic syntax and how to use it to create a dynamic webpage</li>
+            </ol>
+            <h3> Challenges </h3>
+            <p> <strong>Challenge</strong>: How to actually implement Javascript</p>
+            <p><strong> Solution</strong>
+                : I looked at examples of Javascript usage and used Google and ChatGPT to learn how to implement it the way I wanted 
+                
+            </p>
+            <p><strong>Challenge</strong>: How to use the Spoonacular API</p>
+            <p><strong>Solution</strong>
+                : I went to the Spoonacular website to figure out how to use the API. After getting a key I learned how to make requests through Chat GPT and looking at the documentation
+            </p>
+            <h3> Learning and Outcomes</h3>
+            <ul>
+                <li><strong>Skills Acquired</strong>: Solidified my HTML and CSS skills further. Also learned how to use Javascript and how to use the Spoonacular API.
+                </li>
+                <li><strong>Insights</strong>: Understood that theres still a lot for me to learn about Javascript and how to make a dynamic webpage</li>
+            </ul>
+            <p> Link to the github project would be here</p>
+        </div>
     </section>
 
-    <section id = "Contact" class="contact-section">
-        <h2>Contact me</h2>
+    <section id="Contact" class="contact-section">
+        <h2>Contact Me</h2>
         <form action="https://formspree.io/f/mnnandla" method="POST">
-            <label for name="name"> Name:</label>
+            <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
-
-            <label for email="email"> Email:</label>
+            
+            <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
-
-            <label for message="message"> Your message:</label>
-            <textarea type="text" id="message" name="message" required></textarea>
-
-            <button type="submit"> Send</button>
+            
+            <label for="message">Your message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Send</button>
         </form>
+        
         <footer> 
             <p>Connect with me</p>
             <ul class="social-links">
-                <li><a href="https://www.linkedin.com/in/victor-jimenez-36b8a1294" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                <li><a href="https://www.linkedin.com/in/victor-jimenez-36b8a1294" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn</a></li>
             </ul>
             <p>&copy; 2024 Victor Jimenez. All rights reserved.</p>
         </footer>
-        
     </section>
+    
 </body>

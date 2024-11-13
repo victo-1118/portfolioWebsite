@@ -10,9 +10,20 @@
     background-color: var(--primary-color);
     padding: 0px;
 }
+#temp-fix1 {
+    width: 700px;
+    height: 450px;
+    align-self: center;
+}
+#temp-fix2 {
+    width: 700px;
+    height: 450px;
+    align-self: center;
+}
 #photo-resize {
     text-align: center;
 }
+
 #photo-resize img {
     display: block; /* Ensures the image behaves like a block element */
     margin: 0 auto; /* Centers the image horizontally */
@@ -79,7 +90,7 @@ body {
 }
 .nav-bar {
     background-color: var(--dark-color);
-    padding: 10px;
+    padding: 10px 190px;
     position: sticky;
     top: 0;
     z-index: 999;
@@ -87,12 +98,18 @@ body {
 }
 .nav-list {
     display: flex;
-    justify-content: space-around;
+    
+    
+    justify-content: space-evenly;
     list-style: none;
     margin: 0;
     padding: 0;
 }
+.nav-list li{
+    flex-grow: 1;
+}
 .nav-item a:link, .nav-item:visited {
+    align-self: center;
     color: white;
     text-decoration: none;
     padding: 10px 20px;
@@ -223,6 +240,96 @@ body {
     width: 100%;
     height: auto;
 }
+/* Center and style the contact-section */
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-section h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+/* Style the form */
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    gap: 15px;
+}
+
+.contact-section label {
+    text-align: left;
+    font-weight: bold;
+}
+
+.contact-section input, 
+.contact-section textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-section textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.contact-section button {
+    align-self: center;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-section button:hover {
+    background-color: #0056b3;
+}
+
+/* Style the footer */
+.contact-section footer {
+    margin-top: 30px;
+}
+
+.contact-section .social-links {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-section .social-links li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.contact-section .social-links a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-section .social-links a:hover {
+    color: #0056b3;
+}
+
+.contact-section p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
 /* Media query for tablets (max-width: 10023x) */
 @media (max-width: 1023px) {
     .nav-list {
