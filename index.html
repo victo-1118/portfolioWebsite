@@ -251,32 +251,7 @@ register_tortoise(
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
                 </div>
                 
-                <div class="technologie-used">
-                    <h4>JWT (Json Web Tokens) </h4>
-                    <p>Used to implement secure authentication</p>
-                </div>
-                <div class="technologie-used">
-                    <pre><code class="language-python">from datetime import timedelta
-from fastapi import APIRouter, Depends, HTTPException
-from fastapi.security import OAuth2PasswordRequestForm
-from .. import crud, schemas, auth, config
-from ..dependencies import get_current_active_user
-
-# response will be validated against schema token
-@router.post("/token", response_model=schemas.Token)
-# form_data uses rquest form dependency to parse form data
-async def login_for_acess_token(form_data: OAuth2PasswordRequestForm = Depends()):
-    user = await crud.authenticate_user(form_data.username, form_data.password)
-    if not user:
-        raise HTTPException(status_code=401, detail="Incorrect username or password",
-             headers={"WWW-Authenticate": "Bearer"})
-    access_token_expires = timedelta(minutes=config.settings.ACCESS_TOKEN_EXPIRE_MINUTES)
-    access_token = auth.create_access_token(data={"sub": user.username},
-         expires_delta=access_token_expires)
-    return {"access_token": access_token, "token_type" : "bearer"} </code></pre>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
-                </div>
+                
         
             </div>
             <h3> Role</h3>
