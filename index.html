@@ -75,6 +75,219 @@
     </section>
 
     <section id = "Portfolio" class="portfolio-section">
+        
+        <div class="project">
+            <h2> To Do List API (Backend)</h2>
+            <h3> Purpose</h3>
+            <p> My purpose for this project was to implement my better understanding of FastApi and Tortoise ORM</p>
+            <h3> Technologies Used</h3>
+            <div class="technologies-container">
+                <div class="technologie-used">
+                    <h4> Python </h4>
+                    <p>The primary programming language</p>
+                </div>
+                <div class="technologie-used">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Python_logo_51.svg" alt="python logo" id="photo-resize-program-logo">
+                </div>
+                <div class="technologie-used">
+                    <h4> FastAPI </h4>
+                    <p>For building the web api and setting up the routes neccesary  </p>
+                </div>
+                <div class="technologie-used">
+                    <pre><code class="language-python">from fastapi import APIRouter, Depends, HTTPException
+from .. import crud, schemas, dependencies
+
+router = APIRouter( # Sets up the router that will handel all the routes
+    prefix="/users",
+    tags=["users"],
+    dependencies=[Depends(dependencies.get_db)]
+    #dependecies value tells it to use the get_db function from the dependencies
+)
+
+@router.post("/", response_model=schemas.User)# Sets up route to create user
+async def create_user(user: schemas.UserCreate):
+    db_user = await crud.get_user_by_email(user.email)
+    if db_user:
+        raise HTTPException(status_code=400, detail="Email already registered")
+    return await crud.create_user(user)</code></pre>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+                </div>
+                <div class="technologie-used">
+                    <h4> Tortoise ORM </h4>
+                    <p>For making the database and its interactions </p>
+                </div>
+                <div class="technologie-used">
+                    <pre><code class="language-python">from fastapi import FastAPI
+from tortoise.contrib.fastapi import register_tortoise
+register_tortoise(
+    app, # Fast API app
+    db_url=settings.DATABASE_URL,# Sets up the database URL from the settings congiguration
+    modules={'models': ['app.models']}, # Tells us where to find tortoise orm models
+    generate_schemas=True, # Generates database schemas based on the models
+    add_exception_handlers=True, # Adds exception handlers
+)                   </code></pre>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+                </div>
+                
+                
+        
+            </div>
+            <h3> Role</h3>
+            <p> My primary role was to code backend part of the project to solidify my understanding of FastAPI, Tortoise ORM</p>
+            <h3> Learning Process</h3>
+            <ol>
+                <li><strong>Continued further Understanding of FastAPI and Tortoise ORM</strong>: Implemented what I understood from both of these technologies and continued to learn more features from them</li>
+                <li><strong> Implemented and Understanding Typehinting in Python</strong>: Learned about Typehinting to begin to develop good habits and to make code more legible </li>
+            </ol>
+            <h3> Challenges </h3>
+            <p> <strong>Challenge</strong>: How to implement a class that would act as a list that would take several Item objects</p>
+            <p><strong> Solution</strong>: I learned that the fields library has a two methods that can help simulate a list. 
+                By using .ReverseRelation() and .ForeignKeyField() I was able to establish a relationship between the two classes(List and Item) so that I could
+                link Item objects to a List object which would be the only object that could access those Item objects.
+            </p>
+            <p><strong>Challenge</strong>: How to use pydantic models made from Tortoise ORM for typehinting</p>
+            <p><strong>Solution</strong>: I went to the Tortoise ORM documentation for help and saw that I just had 
+                to create classes based on the variable names of my pydantic models created from Tortoise and pass them so that 
+                I could use them for type checking.
+            </p>
+            <h3> Learning and Outcomes</h3>
+            <ul>
+                <li><strong>Skills Acquired</strong>: Learned how to simulate list and how to use pydantic
+                    models created from Tortoise for typehinting. Also gained practical experience on how to
+                    create RESTful API's, how I should set up my file structure and what order I should work 
+                    for parts of the API
+                </li>
+                <li><strong>Insights</strong>: Understood that theres still a lot for me to learn about creating automatic tests.</li>
+            </ul>
+            <p> You can take a look at the code here: https://github.com/victo-1118/fast_api_to_do_list </p>
+        </div>
+        <div class="project">
+            <h2> To Do List API (Frontend)</h2>
+            <h3> Purpose</h3>
+            <p> My purpose for this project was to implement what I knew about Javascript and potentially learn some other of its functions</p>
+            <h3> Technologies Used</h3>
+            <div class="technologies-container">
+                <div class="technologie-used">
+                    <h4> Javascript </h4>
+                    <p> Used to create a dynamic website</p>
+                </div>
+                <div class="technologie-used">
+                    <img src = "https://1000logos.net/wp-content/uploads/2020/09/JavaScript-Logo.png" alt="javascript logo" id="temp-fix2">
+                </div>
+                <div class="technologie-used">
+                    <h4> HTML and CSS  </h4>
+                    <p>For building the tags and elements  </p>
+                </div>
+                <div class="technologie-used">
+                    <img src="https://miro.medium.com/v2/resize:fit:792/1*lJ32Bl-lHWmNMUSiSq17gQ.png" alt="html and css logo" id="temp-fix1">
+                </div>
+            </div>
+            <h3> Role</h3>
+            <p> My primary role was to code the frontend part of the project to learn more about Javascript and DOM manipulation</p>
+            <h3> Learning Process</h3>
+            <ol>
+                <li><strong>Learned Javascript and its functions</strong>: Implemented what I understood from javascript and learned more things I can use to make DOM manipulation easier</li>
+                <li><strong> Fetch API</strong>: One important thing from Javascript is the Fetch API feature that I had to learn separately in more detail </li>
+            </ol>
+            <h3> Challenges </h3>
+            <p> <strong>Challenge</strong>: How to make a circular progress bar</p>
+            <p><strong> Solution</strong>: I learned that how in some cases changes to the backend need to be made to make it possible
+                for other features to be possible in the frontend. I also learned about gradients and shadows in CSS and more ways
+                on how to use style fieatures in CSS
+            </p>
+            <p><strong>Challenge</strong>: How to maintain neat code</p>
+            <p><strong>Solution</strong>: It was getting difficult to keep track of all the code I was writing so I had to make 
+                my existing logic simpler. For example instead of having if statements for every possible case I could just use a switch statement.
+                Or if there was a function that was doing more than one thing I could just break it down into smaller functions.
+            </p>
+            <h3> Learning and Outcomes</h3>
+            <ul>
+                <li><strong>Skills Acquired</strong>: Learned how to manipulate DOM elements, how to use data values from html elements and how to use the Fetch API</li>
+                </li>
+                <li><strong>Insights</strong>: Manipulating DOM can be more complex and its better to have a clear goal in mind in what your front end should look like to prevent 
+                    extra changes in the backend
+                </li>
+            </ul>
+            <p> You can take a look at the code here: https://github.com/victo-1118/fast_api_to_do_list </p>
+            
+        </div>
+        <div class="project">
+            <h2> Recipe Finder Application</h2>
+            <h3> Purpose</h3>
+            <p> My purpose for this project was to learn more about javascript and use my existing knowledge to create a webpage</p>
+            <h3> Technologies Used</h3>
+            <div class="technologies-container">
+                <div class="technologie-used">
+                    <h4> HTML + CSS </h4>
+                    <p> Language used to build the web page</p>
+                </div>
+                <div class="technologie-used">
+                    <img src="https://miro.medium.com/v2/resize:fit:792/1*lJ32Bl-lHWmNMUSiSq17gQ.png" alt="html and css logo" id="temp-fix1">
+                </div>
+                <div class="technologie-used">
+                    <h4> Javascript </h4>
+                    <p>For building the web api and setting up the routes neccesary  </p>
+                </div>
+                <div class="technologie-used">
+                    <img src = "https://1000logos.net/wp-content/uploads/2020/09/JavaScript-Logo.png" alt="javascript logo" id="temp-fix2">
+                </div>
+                <div class="technologie-used">
+                    <h4> Spoonacular API </h4>
+                    <p>For making the database and its interactions </p>
+                </div>
+                <div class="technologie-used">
+                    <pre><code class="language-javascript">form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const ingredients = document.getElementById("search").value;
+    fetchRecpies(ingredients);
+});
+                
+function fetchRecpies(ingredients) {
+    const url = `call to Spoonacular API`;
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+            displayRecipes(data);
+        })
+        .catch((error) => {
+            console.error("Error fetching recipes", error);
+        });
+}
+)                   </code></pre>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+                </div>
+                
+                
+        
+            </div>
+            <h3> Role</h3>
+            <p> My primary role was to code the frontend and integrate the Spoonacular API</p>
+            <h3> Learning Process</h3>
+            <ol>
+                <li><strong>Continued further Understanding of HTML and CSS</strong>: Implemented my knowledge of HTML and CSS to create a friendly user interface</li>
+                <li><strong> Implemented Javascript</strong>: Learned basic syntax and how to use it to create a dynamic webpage</li>
+            </ol>
+            <h3> Challenges </h3>
+            <p> <strong>Challenge</strong>: How to actually implement Javascript</p>
+            <p><strong> Solution</strong>
+                : I looked at examples of Javascript usage and used Google and ChatGPT to learn how to implement it the way I wanted 
+                
+            </p>
+            <p><strong>Challenge</strong>: How to use the Spoonacular API</p>
+            <p><strong>Solution</strong>
+                : I went to the Spoonacular website to figure out how to use the API. After getting a key I learned how to make requests through Chat GPT and looking at the documentation
+            </p>
+            <h3> Learning and Outcomes</h3>
+            <ul>
+                <li><strong>Skills Acquired</strong>: Solidified my HTML and CSS skills further. Also learned how to use Javascript and how to use the Spoonacular API.
+                </li>
+                <li><strong>Insights</strong>: Understood that theres still a lot for me to learn about Javascript and how to make a dynamic webpage</li>
+            </ul>
+            <p> Here is the link to this project: https://victo-1118.github.io/recipe_finder/</p>
+        </div>
         <div class="project">
             <h2> User Authentication System (Backend) </h2>
             <h3> Purpose </h3>
@@ -195,168 +408,6 @@ async def login_for_acess_token(form_data: OAuth2PasswordRequestForm = Depends()
                 </li>
             </ul>
 
-        </div>
-        <div class="project">
-            <h2> To Do List API (Backend)</h2>
-            <h3> Purpose</h3>
-            <p> My purpose for this project was to implement my better understanding of FastApi and Tortoise ORM</p>
-            <h3> Technologies Used</h3>
-            <div class="technologies-container">
-                <div class="technologie-used">
-                    <h4> Python </h4>
-                    <p>The primary programming language</p>
-                </div>
-                <div class="technologie-used">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Python_logo_51.svg" alt="python logo" id="photo-resize-program-logo">
-                </div>
-                <div class="technologie-used">
-                    <h4> FastAPI </h4>
-                    <p>For building the web api and setting up the routes neccesary  </p>
-                </div>
-                <div class="technologie-used">
-                    <pre><code class="language-python">from fastapi import APIRouter, Depends, HTTPException
-from .. import crud, schemas, dependencies
-
-router = APIRouter( # Sets up the router that will handel all the routes
-    prefix="/users",
-    tags=["users"],
-    dependencies=[Depends(dependencies.get_db)]
-    #dependecies value tells it to use the get_db function from the dependencies
-)
-
-@router.post("/", response_model=schemas.User)# Sets up route to create user
-async def create_user(user: schemas.UserCreate):
-    db_user = await crud.get_user_by_email(user.email)
-    if db_user:
-        raise HTTPException(status_code=400, detail="Email already registered")
-    return await crud.create_user(user)</code></pre>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
-                </div>
-                <div class="technologie-used">
-                    <h4> Tortoise ORM </h4>
-                    <p>For making the database and its interactions </p>
-                </div>
-                <div class="technologie-used">
-                    <pre><code class="language-python">from fastapi import FastAPI
-from tortoise.contrib.fastapi import register_tortoise
-register_tortoise(
-    app, # Fast API app
-    db_url=settings.DATABASE_URL,# Sets up the database URL from the settings congiguration
-    modules={'models': ['app.models']}, # Tells us where to find tortoise orm models
-    generate_schemas=True, # Generates database schemas based on the models
-    add_exception_handlers=True, # Adds exception handlers
-)                   </code></pre>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
-                </div>
-                
-                
-        
-            </div>
-            <h3> Role</h3>
-            <p> My primary role was to code backend part of the project to solidify my understanding of FastAPI, Tortoise ORM</p>
-            <h3> Learning Process</h3>
-            <ol>
-                <li><strong>Continued further Understanding of FastAPI and Tortoise ORM</strong>: Implemented what I understood from both of these technologies and continued to learn more features from them</li>
-                <li><strong> Implemented and Understanding Typehinting in Python</strong>: Learned about Typehinting to begin to develop good habits and to make code more legible </li>
-            </ol>
-            <h3> Challenges </h3>
-            <p> <strong>Challenge</strong>: How to implement a class that would act as a list that would take several Item objects</p>
-            <p><strong> Solution</strong>: I learned that the fields library has a two methods that can help simulate a list. 
-                By using .ReverseRelation() and .ForeignKeyField() I was able to establish a relationship between the two classes(List and Item) so that I could
-                link Item objects to a List object which would be the only object that could access those Item objects.
-            </p>
-            <p><strong>Challenge</strong>: How to use pydantic models made from Tortoise ORM for typehinting</p>
-            <p><strong>Solution</strong>: I went to the Tortoise ORM documentation for help and saw that I just had 
-                to create classes based on the variable names of my pydantic models created from Tortoise and pass them so that 
-                I could use them for type checking.
-            </p>
-            <h3> Learning and Outcomes</h3>
-            <ul>
-                <li><strong>Skills Acquired</strong>: Learned how to simulate list and how to use pydantic
-                    models created from Tortoise for typehinting. Also gained practical experience on how to
-                    create RESTful API's, how I should set up my file structure and what order I should work 
-                    for parts of the API
-                </li>
-                <li><strong>Insights</strong>: Understood that theres still a lot for me to learn about creating automatic tests.</li>
-            </ul>
-            <p> You can take a look at the code here: https://github.com/victo-1118/fast_api_to_do_list </p>
-        </div>
-        <div class="project">
-            <h2> Recipe Finder Application</h2>
-            <h3> Purpose</h3>
-            <p> My purpose for this project was to learn more about javascript and use my existing knowledge to create a webpage</p>
-            <h3> Technologies Used</h3>
-            <div class="technologies-container">
-                <div class="technologie-used">
-                    <h4> HTML + CSS </h4>
-                    <p> Language used to build the web page</p>
-                </div>
-                <div class="technologie-used">
-                    <img src="https://miro.medium.com/v2/resize:fit:792/1*lJ32Bl-lHWmNMUSiSq17gQ.png" alt="html and css logo" id="temp-fix1">
-                </div>
-                <div class="technologie-used">
-                    <h4> Javascript </h4>
-                    <p>For building the web api and setting up the routes neccesary  </p>
-                </div>
-                <div class="technologie-used">
-                    <img src = "https://1000logos.net/wp-content/uploads/2020/09/JavaScript-Logo.png" alt="javascript logo" id="temp-fix2">
-                </div>
-                <div class="technologie-used">
-                    <h4> Spoonacular API </h4>
-                    <p>For making the database and its interactions </p>
-                </div>
-                <div class="technologie-used">
-                    <pre><code class="language-javascript">form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const ingredients = document.getElementById("search").value;
-    fetchRecpies(ingredients);
-});
-                
-function fetchRecpies(ingredients) {
-    const url = `call to Spoonacular API`;
-    fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-            displayRecipes(data);
-        })
-        .catch((error) => {
-            console.error("Error fetching recipes", error);
-        });
-}
-)                   </code></pre>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
-                </div>
-                
-                
-        
-            </div>
-            <h3> Role</h3>
-            <p> My primary role was to code the frontend and integrate the Spoonacular API</p>
-            <h3> Learning Process</h3>
-            <ol>
-                <li><strong>Continued further Understanding of HTML and CSS</strong>: Implemented my knowledge of HTML and CSS to create a friendly user interface</li>
-                <li><strong> Implemented Javascript</strong>: Learned basic syntax and how to use it to create a dynamic webpage</li>
-            </ol>
-            <h3> Challenges </h3>
-            <p> <strong>Challenge</strong>: How to actually implement Javascript</p>
-            <p><strong> Solution</strong>
-                : I looked at examples of Javascript usage and used Google and ChatGPT to learn how to implement it the way I wanted 
-                
-            </p>
-            <p><strong>Challenge</strong>: How to use the Spoonacular API</p>
-            <p><strong>Solution</strong>
-                : I went to the Spoonacular website to figure out how to use the API. After getting a key I learned how to make requests through Chat GPT and looking at the documentation
-            </p>
-            <h3> Learning and Outcomes</h3>
-            <ul>
-                <li><strong>Skills Acquired</strong>: Solidified my HTML and CSS skills further. Also learned how to use Javascript and how to use the Spoonacular API.
-                </li>
-                <li><strong>Insights</strong>: Understood that theres still a lot for me to learn about Javascript and how to make a dynamic webpage</li>
-            </ul>
-            <p> Here is the link to this project: https://victo-1118.github.io/recipe_finder/</p>
         </div>
     </section>
 
